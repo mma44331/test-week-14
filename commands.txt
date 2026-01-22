@@ -1,0 +1,21 @@
+docker build -t mma44331/app-weapon:v1 .
+
+docker push mma44331/app-weapon:v1
+
+minikube start
+
+kubectl apply -f .
+
+kubectl get pods
+
+oc login --token=sha256~KuagnbHpf82lzNRw8mY9ZlB5UXDTo_oFPBAUBfrHRSA --server=https://api.rm2.thpm.p1.openshiftapps.com:6443
+
+oc apply -f .
+
+oc get pods
+
+oc get svc
+
+oc create route edge api   --service=api-svc
+
+oc get routes

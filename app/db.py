@@ -26,7 +26,7 @@ def get_connection():
 def get_db_connection():
     try:
         connection = mysql.connector.connect(
-            host="localhost",
+            host="mysql-0.mysql-svc",
             user="root",
             password="password",
             database="weapons_db"
