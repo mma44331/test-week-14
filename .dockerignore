@@ -1,0 +1,7 @@
+.venv
+data
+k8s
+.dockerignore
+.gitignore
+commands.txt
+README.md
