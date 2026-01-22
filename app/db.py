@@ -10,8 +10,8 @@ def init_connection_pool():
         _connection_pool = mysql.connector.pooling.MySQLConnectionPool(
             pool_name="weapon_pool",
             pool_size=5,
-            host='172.0.0.1',
-            port=3307,
+            host='mysql-0.mysql-svc',
+            port=3306,
             user="root",
             password="password",
             database="weapons_db",
