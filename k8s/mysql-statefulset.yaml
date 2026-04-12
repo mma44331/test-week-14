@@ -24,14 +24,11 @@ spec:
           - name: mysql-data
             mountPath: /var/lib/mysql
           env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: "123"
-          - name: MYSQL_USER
-            value: "root"
-          - name: MYSQL_PASSWORD
-            value: "password"
           - name: MYSQL_DATABASE
             value: "weapons_db"
+          - name: MYSQL_ROOT_PASSWORD
+            value: "123"
+
 
 
 

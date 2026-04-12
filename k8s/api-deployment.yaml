@@ -16,7 +16,22 @@ spec:
     spec:
       containers:
       - name: api
-        image: mma44331/app-weapon:v1
+        image: mma44331/app-weapon:v6
         ports:
         - containerPort: 8000
+        env:
+          - name: MYSQL_USER
+            value: "root"
+          - name: MYSQL_ROOT_PASSWORD
+            value: "123"
+          - name: MYSQL_DATABASE
+            value: "weapons_db"
+          - name: MYSQL_HOST
+            value: "mysql-svc"
+          - name: POOL_NAME
+            value: "weapon_pool"
+          - name: POOL_SIZE
+            value: "5"
+          - name: PORT
+            value: "3306"
 

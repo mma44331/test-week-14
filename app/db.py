@@ -1,5 +1,6 @@
 import mysql.connector.pooling
 from mysql.connector import Error
+import os
 
 _connection_pool = None
 
@@ -8,13 +9,13 @@ def init_connection_pool():
     global _connection_pool
     if _connection_pool is None:
         _connection_pool = mysql.connector.pooling.MySQLConnectionPool(
-            pool_name="weapon_pool",
-            pool_size=5,
-            host='mysql-0.mysql-svc',
-            port=3306,
-            user="root",
-            password="password",
-            database="weapons_db",
+            pool_name=os.getenv("POOL_NAME"),
+            pool_size=int(os.getenv("POOL_SIZE")),
+            host=os.getenv("MYSQL_HOST"),
+            port=int(os.getenv("PORT")),
+            user=os.getenv("MYSQL_USER"),
+            password=os.getenv("MYSQL_ROOT_PASSWORD"),
+            database=os.getenv("MYSQL_DATABASE"),
             autocommit=True
         )
 
@@ -26,10 +27,10 @@ def get_connection():
 def get_db_connection():
     try:
         connection = mysql.connector.connect(
-            host="mysql-0.mysql-svc",
-            user="root",
-            password="password",
-            database="weapons_db"
+            host=os.getenv("MYSQL_HOST"),
+            user=os.getenv("MYSQL_USER"),
+            password=os.getenv("MYSQL_ROOT_PASSWORD"),
+            database=os.getenv("MYSQL_DATABASE")
         )
 
         cursor = connection.cursor()
